@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 5</title>
+    <link rel="stylesheet" href="/css/fases.css">
+    <link rel="shortcut icon" href="icon.png">
+</head>
+<body class="flex justify">
+    <form action="/fase?id=morse" method="POST" class="align column">
+        <h1>--- ..- -.-.. .- / -... . --</h1>
+        <h2>na dúvida, recarregue a página</h2>
+        <input type="text" name="answ" id="answ" class="text_inputs" autocomplete="off" required placeholder="Resposta">
+        <button class="btn align justify">Ir para a próxima fase</button>
+        <iframe src="audios/morse.wav" allow="autoplay" style="display: none;" id="iframeAudio">
+        </iframe>
+        <audio autoplay  id="playAudio">
+            <source src="audios/morse.wav">
+        </audio>
+        <h4>Dica: .... - - .--. ... ---... -..-. -..-. .-- .-- .-- .-.-.- -.-- --- ..- - ..- -... . .-.-.- -.-. --- -- -..-. .-- .- - -.-. .... ..--.. ...- -...- -.. --.- .-- ....- .-- ----. .-- --. -..- -.-. --.-</h4>
+    </form>
+<script>
+    var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if (!isChrome){
+        $('#iframeAudio').remove()
+    }
+    else {
+        $('#playAudio').remove() // just to make sure that it will not have 2x audio in the background 
+    }
+</script>
+</body>
+</html>
