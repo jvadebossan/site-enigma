@@ -18,7 +18,7 @@ app.use(session({
 }))
 
 
-const passwords = {1:'H1Ka70kebP3veo1MAg1', 2:'malbolge', 3:'hakonlie', 4:'banana', 5:'bielgomes'}
+const passwords = {1:'h1ka70kebp3veo1mag1', 2:'malbolge', 3:'hakonlie', 4:'banana', 5:'bielgomes'}
 const levels = {'chave':1, 'linguagem':2, 'webdesign':3, 'letras':4, 'morse':5}
 
 app.get('/', (req, res)=>{
@@ -39,7 +39,7 @@ app.post('/fase', (req, res)=>{
     let {id} = req.query
     id_ = levels[id]
     let {answ} = req.body
-    if(answ == passwords[id_]){
+    if(answ.toLowerCase() == passwords[id_]){
         let prox_fase = id_ += 1
         session.level = prox_fase
         res.render(`fase${prox_fase}`)  
